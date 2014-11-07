@@ -1,7 +1,35 @@
 <html>
     <head>
         <title>A chat room built using node.js and socket.io</title>
-        <style>
-        </style>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <script>
+            $(function() {
+                var socket = io();
+                var input = $('.input input');
+                var button = $('.input button');
+                var chat = $('.chat');
+
+                button.click(function() {
+                    socket.emit('message', input.val());
+                    input.val('');
+                });
+
+                socket.on('message', function(message) {
+                    chat.append('<div>' + message + '</div>');
+                });
+
+                socket.on('userConnection', function(message) {
+                    chat.append('<div style="font-weight: bold;">' + message + '</div>');
+                });
+            });
+        </script>
     </head>
+    <body>
+        <div class="chat"></div>
+        <div class="input">
+            <input type="text" /><button>Send</button>
+        </div>
+    </body>
 </html>

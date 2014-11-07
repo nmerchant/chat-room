@@ -1,1 +1,21 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { box-sizing: border-box; }
+body {
+    font-size: 12px;
+    margin: 0;
+    padding: 10px;
+}
+.chat {
+    height: 350px;
+    width: 500px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+.input input {
+    width: 450px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+}
+.input button {
+
+}
