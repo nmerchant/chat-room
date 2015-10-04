@@ -3,12 +3,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/index.html');
-});
-app.get('/style.css', function(req, res) {
-    res.sendFile(__dirname + '/style.css');
-});
+app.use(express.static(__dirname + '/'));
 
 io.on('connection', function(socket) {
     io.emit('userConnection', 'A new user connected.');
