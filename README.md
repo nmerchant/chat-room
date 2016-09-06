@@ -9,3 +9,4 @@ $ git clone https://github.com/nmerchant/chat-room.git
 $ cd chat-room
 $ node app
 ```
+And then navigate to `localhost:3000` in your browser!
